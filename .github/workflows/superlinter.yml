@@ -1,13 +1,17 @@
-name: Markdown Linter
+name: Super-Linter
 
 on: push
 
 jobs:
-  markdown-lint:
+ super-lint: 
+    name: link code base 
     runs-on: ubuntu-latest
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v2
+    steps: 
+     - name: Checkout code 
+       uses: actions/checout@v2
 
-      - name: Run Markdown Linter
-        uses: actions/markdown-lint@v1
+     - name: Run Super-Linter 
+       uses: github/super-linter@v3
+       env: 
+         DEFAULT_BRANCH: main 
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
